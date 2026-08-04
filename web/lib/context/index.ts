@@ -7,20 +7,24 @@ export async function getContext({
   conversationId,
   question,
 }: {
-  mode: string;
+  mode: "none" | "recent" | "full" | "summary" | undefined;
   conversationId: string;
   question: string;
-}){
-    switch (mode){
-        case "none":
-            return ""
-        case "recent":
-            return await getRecentContext(conversationId);
-        case "full":
-            return await getRetrievedContext(conversationId, question);
-        case "summary":
-            return await getSummaryContext(conversationId);
-        default:
-            return ""
-    }
+}): Promise<string> {
+  switch (mode) {
+    case "none":
+      return "";
+    case "recent":
+      return formatMessages(await getRecentContext(conversationId));
+    case "full":
+      return formatMessages(await getRetrievedContext(conversationId, question));
+    case "summary":
+      return getSummaryContext(conversationId);
+    default:
+      return "";
+  }
+}
+
+function formatMessages(messages: Array<{ role: string; content: string }>) {
+  return messages.map(({ role, content }) => `${role}: ${content}`).join("\n");
 }
