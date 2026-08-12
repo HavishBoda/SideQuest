@@ -51,7 +51,8 @@ export const AnyNull = runtime.objectEnumValues.instances.AnyNull
 export const ModelName = {
   Conversation: 'Conversation',
   Message: 'Message',
-  Summary: 'Summary'
+  Summary: 'Summary',
+  SideQuery: 'SideQuery'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -94,6 +95,19 @@ export const SummaryScalarFieldEnum = {
 } as const
 
 export type SummaryScalarFieldEnum = (typeof SummaryScalarFieldEnum)[keyof typeof SummaryScalarFieldEnum]
+
+
+export const SideQueryScalarFieldEnum = {
+  id: 'id',
+  conversationId: 'conversationId',
+  selectedText: 'selectedText',
+  question: 'question',
+  contextMode: 'contextMode',
+  answer: 'answer',
+  createdAt: 'createdAt'
+} as const
+
+export type SideQueryScalarFieldEnum = (typeof SideQueryScalarFieldEnum)[keyof typeof SideQueryScalarFieldEnum]
 
 
 export const SortOrder = {

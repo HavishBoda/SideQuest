@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>SideQuest</title>
+    <link rel="stylesheet" href="sidepanel.css" />
+  </head>
+  <body>
+    <div id="app">
+      <h1>SideQuest</h1>
+
+      <section>
+        <label for="excerpt">Highlighted excerpt</label>
+        <div id="excerpt" class="excerpt">
+          No selection yet. Highlight text on chatgpt.com and trigger SideQuest.
+        </div>
+      </section>
+
+      <div id="sync-status" class="sync-status"></div>
+
+      <section>
+        <label for="context-mode">Context</label>
+        <select id="context-mode">
+          <option value="none">None</option>
+          <option value="recent" selected>Recent (last 10 messages)</option>
+          <option value="full">Full (semantic search)</option>
+          <option value="summary">Summary</option>
+        </select>
+      </section>
+
+      <section>
+        <label for="question">Your question</label>
+        <textarea id="question" rows="3" placeholder="Ask about the highlighted excerpt..."></textarea>
+      </section>
+
+      <button id="submit">Ask</button>
+
+      <section id="answer-section" class="answer" hidden>
+        <label>Answer</label>
+        <div id="answer"></div>
+      </section>
+
+      <div id="error-section" class="error" hidden></div>
+    </div>
+    <script src="sidepanel.js"></script>
+  </body>
+</html>

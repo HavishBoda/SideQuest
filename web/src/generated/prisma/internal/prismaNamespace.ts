@@ -392,7 +392,8 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 export const ModelName = {
   Conversation: 'Conversation',
   Message: 'Message',
-  Summary: 'Summary'
+  Summary: 'Summary',
+  SideQuery: 'SideQuery'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -408,7 +409,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "conversation" | "message" | "summary"
+    modelProps: "conversation" | "message" | "summary" | "sideQuery"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -634,6 +635,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    SideQuery: {
+      payload: Prisma.$SideQueryPayload<ExtArgs>
+      fields: Prisma.SideQueryFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SideQueryFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SideQueryPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SideQueryFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SideQueryPayload>
+        }
+        findFirst: {
+          args: Prisma.SideQueryFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SideQueryPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SideQueryFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SideQueryPayload>
+        }
+        findMany: {
+          args: Prisma.SideQueryFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SideQueryPayload>[]
+        }
+        create: {
+          args: Prisma.SideQueryCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SideQueryPayload>
+        }
+        createMany: {
+          args: Prisma.SideQueryCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SideQueryCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SideQueryPayload>[]
+        }
+        delete: {
+          args: Prisma.SideQueryDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SideQueryPayload>
+        }
+        update: {
+          args: Prisma.SideQueryUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SideQueryPayload>
+        }
+        deleteMany: {
+          args: Prisma.SideQueryDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SideQueryUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SideQueryUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SideQueryPayload>[]
+        }
+        upsert: {
+          args: Prisma.SideQueryUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SideQueryPayload>
+        }
+        aggregate: {
+          args: Prisma.SideQueryAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSideQuery>
+        }
+        groupBy: {
+          args: Prisma.SideQueryGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SideQueryGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SideQueryCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SideQueryCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -697,6 +772,19 @@ export const SummaryScalarFieldEnum = {
 } as const
 
 export type SummaryScalarFieldEnum = (typeof SummaryScalarFieldEnum)[keyof typeof SummaryScalarFieldEnum]
+
+
+export const SideQueryScalarFieldEnum = {
+  id: 'id',
+  conversationId: 'conversationId',
+  selectedText: 'selectedText',
+  question: 'question',
+  contextMode: 'contextMode',
+  answer: 'answer',
+  createdAt: 'createdAt'
+} as const
+
+export type SideQueryScalarFieldEnum = (typeof SideQueryScalarFieldEnum)[keyof typeof SideQueryScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -823,6 +911,7 @@ export type GlobalOmitConfig = {
   conversation?: Prisma.ConversationOmit
   message?: Prisma.MessageOmit
   summary?: Prisma.SummaryOmit
+  sideQuery?: Prisma.SideQueryOmit
 }
 
 /* Types for Logging */

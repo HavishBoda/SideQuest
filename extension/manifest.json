@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "SideQuest",
+  "version": "0.1.0",
+  "description": "Ask side questions about a ChatGPT conversation without growing the main thread.",
+  "permissions": ["contextMenus", "sidePanel", "storage", "activeTab"],
+  "host_permissions": ["https://chatgpt.com/*", "http://localhost:3000/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://chatgpt.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "side_panel": {
+    "default_path": "sidepanel/index.html"
+  },
+  "action": {
+    "default_title": "SideQuest"
+  },
+  "commands": {
+    "ask-side-question": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+K",
+        "mac": "Command+Shift+K"
+      },
+      "description": "Ask a SideQuest side-question about the current selection"
+    }
+  }
+}

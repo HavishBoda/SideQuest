@@ -11,4 +11,5 @@
 export type * from './models/Conversation'
 export type * from './models/Message'
 export type * from './models/Summary'
+export type * from './models/SideQuery'
 export type * from './commonInputTypes'

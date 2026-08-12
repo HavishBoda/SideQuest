@@ -1,5 +1,5 @@
 import { ChromaClient } from "chromadb";
 
 export const chroma = new ChromaClient({
-  path: "http://localhost:8000",
+  path: process.env.CHROMA_URL ?? "http://localhost:8000",
 });

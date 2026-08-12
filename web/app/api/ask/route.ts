@@ -1,6 +1,6 @@
 import { getContext } from "@/lib/context";
 import { prisma } from "@/lib/db/client";
-import { generate, OllamaError } from "@/lib/llm/ollama";
+import { generate, OllamaError } from "@/lib/llm";
 import { buildPrompt } from "@/lib/prompts/builder";
 
 export const runtime = "nodejs";

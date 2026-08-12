@@ -32,3 +32,8 @@ export type Message = Prisma.MessageModel
  * 
  */
 export type Summary = Prisma.SummaryModel
+/**
+ * Model SideQuery
+ * 
+ */
+export type SideQuery = Prisma.SideQueryModel

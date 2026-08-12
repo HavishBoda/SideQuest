@@ -168,6 +168,7 @@ export type ConversationWhereInput = {
   createdAt?: Prisma.DateTimeFilter<"Conversation"> | Date | string
   messages?: Prisma.MessageListRelationFilter
   summary?: Prisma.XOR<Prisma.SummaryNullableScalarRelationFilter, Prisma.SummaryWhereInput> | null
+  sideQueries?: Prisma.SideQueryListRelationFilter
 }
 
 export type ConversationOrderByWithRelationInput = {
@@ -176,6 +177,7 @@ export type ConversationOrderByWithRelationInput = {
   createdAt?: Prisma.SortOrder
   messages?: Prisma.MessageOrderByRelationAggregateInput
   summary?: Prisma.SummaryOrderByWithRelationInput
+  sideQueries?: Prisma.SideQueryOrderByRelationAggregateInput
 }
 
 export type ConversationWhereUniqueInput = Prisma.AtLeast<{
@@ -187,6 +189,7 @@ export type ConversationWhereUniqueInput = Prisma.AtLeast<{
   createdAt?: Prisma.DateTimeFilter<"Conversation"> | Date | string
   messages?: Prisma.MessageListRelationFilter
   summary?: Prisma.XOR<Prisma.SummaryNullableScalarRelationFilter, Prisma.SummaryWhereInput> | null
+  sideQueries?: Prisma.SideQueryListRelationFilter
 }, "id">
 
 export type ConversationOrderByWithAggregationInput = {
@@ -213,6 +216,7 @@ export type ConversationCreateInput = {
   createdAt?: Date | string
   messages?: Prisma.MessageCreateNestedManyWithoutConversationInput
   summary?: Prisma.SummaryCreateNestedOneWithoutConversationInput
+  sideQueries?: Prisma.SideQueryCreateNestedManyWithoutConversationInput
 }
 
 export type ConversationUncheckedCreateInput = {
@@ -221,6 +225,7 @@ export type ConversationUncheckedCreateInput = {
   createdAt?: Date | string
   messages?: Prisma.MessageUncheckedCreateNestedManyWithoutConversationInput
   summary?: Prisma.SummaryUncheckedCreateNestedOneWithoutConversationInput
+  sideQueries?: Prisma.SideQueryUncheckedCreateNestedManyWithoutConversationInput
 }
 
 export type ConversationUpdateInput = {
@@ -229,6 +234,7 @@ export type ConversationUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   messages?: Prisma.MessageUpdateManyWithoutConversationNestedInput
   summary?: Prisma.SummaryUpdateOneWithoutConversationNestedInput
+  sideQueries?: Prisma.SideQueryUpdateManyWithoutConversationNestedInput
 }
 
 export type ConversationUncheckedUpdateInput = {
@@ -237,6 +243,7 @@ export type ConversationUncheckedUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   messages?: Prisma.MessageUncheckedUpdateManyWithoutConversationNestedInput
   summary?: Prisma.SummaryUncheckedUpdateOneWithoutConversationNestedInput
+  sideQueries?: Prisma.SideQueryUncheckedUpdateManyWithoutConversationNestedInput
 }
 
 export type ConversationCreateManyInput = {
@@ -316,11 +323,26 @@ export type ConversationUpdateOneRequiredWithoutSummaryNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.ConversationUpdateToOneWithWhereWithoutSummaryInput, Prisma.ConversationUpdateWithoutSummaryInput>, Prisma.ConversationUncheckedUpdateWithoutSummaryInput>
 }
 
+export type ConversationCreateNestedOneWithoutSideQueriesInput = {
+  create?: Prisma.XOR<Prisma.ConversationCreateWithoutSideQueriesInput, Prisma.ConversationUncheckedCreateWithoutSideQueriesInput>
+  connectOrCreate?: Prisma.ConversationCreateOrConnectWithoutSideQueriesInput
+  connect?: Prisma.ConversationWhereUniqueInput
+}
+
+export type ConversationUpdateOneRequiredWithoutSideQueriesNestedInput = {
+  create?: Prisma.XOR<Prisma.ConversationCreateWithoutSideQueriesInput, Prisma.ConversationUncheckedCreateWithoutSideQueriesInput>
+  connectOrCreate?: Prisma.ConversationCreateOrConnectWithoutSideQueriesInput
+  upsert?: Prisma.ConversationUpsertWithoutSideQueriesInput
+  connect?: Prisma.ConversationWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ConversationUpdateToOneWithWhereWithoutSideQueriesInput, Prisma.ConversationUpdateWithoutSideQueriesInput>, Prisma.ConversationUncheckedUpdateWithoutSideQueriesInput>
+}
+
 export type ConversationCreateWithoutMessagesInput = {
   id?: string
   title: string
   createdAt?: Date | string
   summary?: Prisma.SummaryCreateNestedOneWithoutConversationInput
+  sideQueries?: Prisma.SideQueryCreateNestedManyWithoutConversationInput
 }
 
 export type ConversationUncheckedCreateWithoutMessagesInput = {
@@ -328,6 +350,7 @@ export type ConversationUncheckedCreateWithoutMessagesInput = {
   title: string
   createdAt?: Date | string
   summary?: Prisma.SummaryUncheckedCreateNestedOneWithoutConversationInput
+  sideQueries?: Prisma.SideQueryUncheckedCreateNestedManyWithoutConversationInput
 }
 
 export type ConversationCreateOrConnectWithoutMessagesInput = {
@@ -351,6 +374,7 @@ export type ConversationUpdateWithoutMessagesInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   summary?: Prisma.SummaryUpdateOneWithoutConversationNestedInput
+  sideQueries?: Prisma.SideQueryUpdateManyWithoutConversationNestedInput
 }
 
 export type ConversationUncheckedUpdateWithoutMessagesInput = {
@@ -358,6 +382,7 @@ export type ConversationUncheckedUpdateWithoutMessagesInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   summary?: Prisma.SummaryUncheckedUpdateOneWithoutConversationNestedInput
+  sideQueries?: Prisma.SideQueryUncheckedUpdateManyWithoutConversationNestedInput
 }
 
 export type ConversationCreateWithoutSummaryInput = {
@@ -365,6 +390,7 @@ export type ConversationCreateWithoutSummaryInput = {
   title: string
   createdAt?: Date | string
   messages?: Prisma.MessageCreateNestedManyWithoutConversationInput
+  sideQueries?: Prisma.SideQueryCreateNestedManyWithoutConversationInput
 }
 
 export type ConversationUncheckedCreateWithoutSummaryInput = {
@@ -372,6 +398,7 @@ export type ConversationUncheckedCreateWithoutSummaryInput = {
   title: string
   createdAt?: Date | string
   messages?: Prisma.MessageUncheckedCreateNestedManyWithoutConversationInput
+  sideQueries?: Prisma.SideQueryUncheckedCreateNestedManyWithoutConversationInput
 }
 
 export type ConversationCreateOrConnectWithoutSummaryInput = {
@@ -395,6 +422,7 @@ export type ConversationUpdateWithoutSummaryInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   messages?: Prisma.MessageUpdateManyWithoutConversationNestedInput
+  sideQueries?: Prisma.SideQueryUpdateManyWithoutConversationNestedInput
 }
 
 export type ConversationUncheckedUpdateWithoutSummaryInput = {
@@ -402,6 +430,55 @@ export type ConversationUncheckedUpdateWithoutSummaryInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   messages?: Prisma.MessageUncheckedUpdateManyWithoutConversationNestedInput
+  sideQueries?: Prisma.SideQueryUncheckedUpdateManyWithoutConversationNestedInput
+}
+
+export type ConversationCreateWithoutSideQueriesInput = {
+  id?: string
+  title: string
+  createdAt?: Date | string
+  messages?: Prisma.MessageCreateNestedManyWithoutConversationInput
+  summary?: Prisma.SummaryCreateNestedOneWithoutConversationInput
+}
+
+export type ConversationUncheckedCreateWithoutSideQueriesInput = {
+  id?: string
+  title: string
+  createdAt?: Date | string
+  messages?: Prisma.MessageUncheckedCreateNestedManyWithoutConversationInput
+  summary?: Prisma.SummaryUncheckedCreateNestedOneWithoutConversationInput
+}
+
+export type ConversationCreateOrConnectWithoutSideQueriesInput = {
+  where: Prisma.ConversationWhereUniqueInput
+  create: Prisma.XOR<Prisma.ConversationCreateWithoutSideQueriesInput, Prisma.ConversationUncheckedCreateWithoutSideQueriesInput>
+}
+
+export type ConversationUpsertWithoutSideQueriesInput = {
+  update: Prisma.XOR<Prisma.ConversationUpdateWithoutSideQueriesInput, Prisma.ConversationUncheckedUpdateWithoutSideQueriesInput>
+  create: Prisma.XOR<Prisma.ConversationCreateWithoutSideQueriesInput, Prisma.ConversationUncheckedCreateWithoutSideQueriesInput>
+  where?: Prisma.ConversationWhereInput
+}
+
+export type ConversationUpdateToOneWithWhereWithoutSideQueriesInput = {
+  where?: Prisma.ConversationWhereInput
+  data: Prisma.XOR<Prisma.ConversationUpdateWithoutSideQueriesInput, Prisma.ConversationUncheckedUpdateWithoutSideQueriesInput>
+}
+
+export type ConversationUpdateWithoutSideQueriesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  title?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  messages?: Prisma.MessageUpdateManyWithoutConversationNestedInput
+  summary?: Prisma.SummaryUpdateOneWithoutConversationNestedInput
+}
+
+export type ConversationUncheckedUpdateWithoutSideQueriesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  title?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  messages?: Prisma.MessageUncheckedUpdateManyWithoutConversationNestedInput
+  summary?: Prisma.SummaryUncheckedUpdateOneWithoutConversationNestedInput
 }
 
 
@@ -411,10 +488,12 @@ export type ConversationUncheckedUpdateWithoutSummaryInput = {
 
 export type ConversationCountOutputType = {
   messages: number
+  sideQueries: number
 }
 
 export type ConversationCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   messages?: boolean | ConversationCountOutputTypeCountMessagesArgs
+  sideQueries?: boolean | ConversationCountOutputTypeCountSideQueriesArgs
 }
 
 /**
@@ -434,6 +513,13 @@ export type ConversationCountOutputTypeCountMessagesArgs<ExtArgs extends runtime
   where?: Prisma.MessageWhereInput
 }
 
+/**
+ * ConversationCountOutputType without action
+ */
+export type ConversationCountOutputTypeCountSideQueriesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.SideQueryWhereInput
+}
+
 
 export type ConversationSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -441,6 +527,7 @@ export type ConversationSelect<ExtArgs extends runtime.Types.Extensions.Internal
   createdAt?: boolean
   messages?: boolean | Prisma.Conversation$messagesArgs<ExtArgs>
   summary?: boolean | Prisma.Conversation$summaryArgs<ExtArgs>
+  sideQueries?: boolean | Prisma.Conversation$sideQueriesArgs<ExtArgs>
   _count?: boolean | Prisma.ConversationCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["conversation"]>
 
@@ -466,6 +553,7 @@ export type ConversationOmit<ExtArgs extends runtime.Types.Extensions.InternalAr
 export type ConversationInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   messages?: boolean | Prisma.Conversation$messagesArgs<ExtArgs>
   summary?: boolean | Prisma.Conversation$summaryArgs<ExtArgs>
+  sideQueries?: boolean | Prisma.Conversation$sideQueriesArgs<ExtArgs>
   _count?: boolean | Prisma.ConversationCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type ConversationIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -476,6 +564,7 @@ export type $ConversationPayload<ExtArgs extends runtime.Types.Extensions.Intern
   objects: {
     messages: Prisma.$MessagePayload<ExtArgs>[]
     summary: Prisma.$SummaryPayload<ExtArgs> | null
+    sideQueries: Prisma.$SideQueryPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -877,6 +966,7 @@ export interface Prisma__ConversationClient<T, Null = never, ExtArgs extends run
   readonly [Symbol.toStringTag]: "PrismaPromise"
   messages<T extends Prisma.Conversation$messagesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Conversation$messagesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MessagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   summary<T extends Prisma.Conversation$summaryArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Conversation$summaryArgs<ExtArgs>>): Prisma.Prisma__SummaryClient<runtime.Types.Result.GetResult<Prisma.$SummaryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  sideQueries<T extends Prisma.Conversation$sideQueriesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Conversation$sideQueriesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SideQueryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1335,6 +1425,30 @@ export type Conversation$summaryArgs<ExtArgs extends runtime.Types.Extensions.In
    */
   include?: Prisma.SummaryInclude<ExtArgs> | null
   where?: Prisma.SummaryWhereInput
+}
+
+/**
+ * Conversation.sideQueries
+ */
+export type Conversation$sideQueriesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the SideQuery
+   */
+  select?: Prisma.SideQuerySelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the SideQuery
+   */
+  omit?: Prisma.SideQueryOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.SideQueryInclude<ExtArgs> | null
+  where?: Prisma.SideQueryWhereInput
+  orderBy?: Prisma.SideQueryOrderByWithRelationInput | Prisma.SideQueryOrderByWithRelationInput[]
+  cursor?: Prisma.SideQueryWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.SideQueryScalarFieldEnum | Prisma.SideQueryScalarFieldEnum[]
 }
 
 /**
