@@ -41,6 +41,10 @@ yarn-error.log*
 next-env.d.ts
 
 /lib/generated/prisma
+/src/generated/prisma
 
 # local chroma vector store data
 /.chroma
+
+# local sqlite database
+/dev.db
