@@ -6,8 +6,8 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 13px;
-  color: #1a1a1a;
-  background: #fafafa;
+  color: #e2e5eb;
+  background: #0d0f14;
 }
 
 #app {
@@ -20,6 +20,8 @@ body {
 h1 {
   font-size: 15px;
   margin: 0;
+  color: #f5f6f8;
+  letter-spacing: 0.2px;
 }
 
 label {
@@ -27,62 +29,84 @@ label {
   font-weight: 600;
   margin-bottom: 4px;
   font-size: 12px;
-  color: #555;
+  color: #7d8798;
 }
 
 .excerpt {
-  background: #fff;
-  border: 1px solid #ddd;
+  background: #151821;
+  border: 1px solid #232838;
   border-radius: 6px;
   padding: 8px;
   max-height: 120px;
   overflow-y: auto;
   white-space: pre-wrap;
+  color: #c7cbd4;
 }
 
 .sync-status {
   font-size: 11px;
-  color: #777;
+  color: #5b6272;
   min-height: 14px;
 }
 
 select,
 textarea {
   width: 100%;
-  border: 1px solid #ccc;
+  background: #12141c;
+  border: 1px solid #262b3a;
   border-radius: 6px;
   padding: 6px;
   font-family: inherit;
   font-size: 13px;
+  color: #e2e5eb;
+}
+
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #3355ee;
+  box-shadow: 0 0 0 2px rgba(51, 85, 238, 0.25);
+}
+
+textarea::placeholder {
+  color: #4c5364;
 }
 
 button {
-  background: #10a37f;
+  background: #1d3fd6;
   color: #fff;
   border: none;
   border-radius: 6px;
   padding: 8px;
   font-size: 13px;
+  font-weight: 600;
   cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+button:hover:not(:disabled) {
+  background: #2749f0;
 }
 
 button:disabled {
-  background: #aaa;
+  background: #262b3a;
+  color: #5b6272;
   cursor: not-allowed;
 }
 
 .answer {
-  background: #fff;
-  border: 1px solid #ddd;
+  background: #10152a;
+  border: 1px solid #1e2a5c;
   border-radius: 6px;
   padding: 8px;
   white-space: pre-wrap;
+  color: #dbe1ff;
 }
 
 .error {
-  background: #fde8e8;
-  border: 1px solid #f5b5b5;
-  color: #a02020;
+  background: #2a1418;
+  border: 1px solid #5c2028;
+  color: #f5a3ac;
   border-radius: 6px;
   padding: 8px;
 }
